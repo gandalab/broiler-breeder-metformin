@@ -80,8 +80,8 @@ raw <- ps %>%
   full_join(zym)
 
 ## plot
-ggplot(data = raw, mapping = aes_string(x = "Treatment", y = "Abundance")) +
-  geom_bar(aes(fill = Phylum), stat = "identity", position = "fill") +
+ggplot(data = filter(raw, Treatment %in% c("NCP1", "NCP2","PCP1", "PCP2", "Zymo")), mapping = aes_string(x = "Treatment", y = "Abundance")) +
+  geom_bar(aes(fill = Class), stat = "identity", position = "fill") +
   labs(x = NULL, y = "Relative Abundance")
 
 ## ---- filter contaminants ----
